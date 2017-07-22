@@ -30,7 +30,7 @@
 %\usepackage{amssymb}
 \usepackage{makeidx}
 \usepackage{setspace}
-\usepackage{hevea}                           
+\usepackage{hevea}
 \usepackage{upquote}
 \usepackage{listings}
 \usepackage{color}
@@ -50,12 +50,12 @@
 \setlinkstext
   {\imgsrc[ALT="Previous"]{back.png}}
   {\imgsrc[ALT="Up"]{up.png}}
-  {\imgsrc[ALT="Next"]{next.png}} 
+  {\imgsrc[ALT="Next"]{next.png}}
 
 % Commands that control the appearance of the listings
 \definecolor{light-gray}{gray}{0.95}
 
-\lstset{basicstyle=\tt, frame=single, 
+\lstset{basicstyle=\tt, frame=single,
 backgroundcolor=\color{light-gray}, escapeinside={(*}{*)},
 numbers=left, numberstyle=\tiny, numbersep=10pt}
 
@@ -352,7 +352,7 @@ GitHub page.
 \section*{Contributor List}
 
 
-If you have a suggestion or correction, please send email to 
+If you have a suggestion or correction, please send email to
 {\tt downey@allendowney.com}.  If I make a change based on your
 feedback, I will add you to the contributor list
 (unless you ask to be omitted).
@@ -872,7 +872,7 @@ to isolate processes from each other:
   interrupt a running process at almost any time, save its hardware
   state, and then resume the process later.  In general, programmers
   don't have to think about these interruptions.  The program behaves
-  as if it is running continuously on a dedicated processor, 
+  as if it is running continuously on a dedicated processor,
   except that the time between instructions is unpredictable.
 
 \item Virtual memory: Most operating systems create the
@@ -936,7 +936,7 @@ If you run it in a terminal, you might see something like this:
 \end{verbatim}
 
 The first column is the unique numerical process ID.  The second
-column is the terminal that created the process; 
+column is the terminal that created the process;
 ``TTY'' stands for teletypewriter, which was the original
 mechanical terminal.
 
@@ -1062,7 +1062,7 @@ memory'', which is usually some kind of random access memory (RAM).
 On most current computers, main memory is volatile, which means that
 when the computer shuts down, the contents of main memory are lost.
 A typical desktop computer has 2--8 GiB of
-memory.  GiB stands for ``gibibyte,'' which is $2^{30}$ bytes.  
+memory.  GiB stands for ``gibibyte,'' which is $2^{30}$ bytes.
 
 If the process reads and writes files, those files are usually stored
 on a hard disk drive (HDD) or solid state drive (SSD).  These storage
@@ -1097,7 +1097,7 @@ decimal, or 0x03ff ffff in hexadecimal (the prefix 0x indicates a
 hexadecimal number).
 
 However, most operating systems provide ``virtual memory,'' which
-means that programs never deal with physical addresses, and don't 
+means that programs never deal with physical addresses, and don't
 have to know how much physical memory is available.
 
 Instead, programs work with virtual addresses, which are numbered
@@ -1147,7 +1147,7 @@ The data of a running process is organized into 4 segments:
   that are declared {\tt static}.
 
 \item The stack segment contains the run-time stack, which is
-  made up of stack frames.  Each stack frame contains the 
+  made up of stack frames.  Each stack frame contains the
   parameters and local variables of a function.
 
 \item The heap segment contains chunks of memory allocated
@@ -1156,7 +1156,7 @@ The data of a running process is organized into 4 segments:
 
 \end{itemize}
 
-The arrangement of these segments is determined partly by the 
+The arrangement of these segments is determined partly by the
 compiler and partly by the operating system.  The details vary
 from one system to another, but in the most common arrangement:
 
@@ -1282,7 +1282,7 @@ translation between VAs and PAs.
 \begin{enumerate}
 
 \item When a program reads or writes a variable, the CPU generates a
-VA.  
+VA.
 
 \item The MMU splits the VA into two parts, called the page number and
 the offset.  A ``page'' is a chunk of memory; the size of a page
@@ -1409,7 +1409,7 @@ folder), through a series of subdirectories, to a specific file.
 
 The primary difference between the abstraction and the underlying
 mechanism is that files are byte-based and persistent storage is
-block-based.  The operating system translates byte-based file operations 
+block-based.  The operating system translates byte-based file operations
 in the C library into block-based operations on storage devices.
 Typical block sizes are 1--8 KiB.
 
@@ -1784,7 +1784,7 @@ a bit vector, \verb"|" is used to set bits, and \verb"^"
 is used to flip, or ``toggle'' bits.  Here are the details:
 
 {\bf Clearing bits}: For any value $x$, $x \& 0$ is 0, and $x \& 1$ is $x$.
-So if you AND a vector with 3, it 
+So if you AND a vector with 3, it
 selects only the two rightmost bits, and sets the rest to 0.
 %
 \begin{verbatim}
@@ -1859,7 +1859,7 @@ Well, that's almost correct.  There's one more wrinkle.
 The exponent is stored with a ``bias''.  In the 32-bit standard,
 the bias is 127, so the exponent 3 would be stored as 130.
 
-To pack and unpack floating-point numbers in C, we can use a 
+To pack and unpack floating-point numbers in C, we can use a
 union and bitwise operations.  Here's an example:
 %
 \begin{verbatim}
@@ -1898,7 +1898,7 @@ To get the coefficient, we need to extract the 23 rightmost bits
 and ignore the rest.  We do that by making a mask with 1s in the
 23 rightmost places and 0s on the left.  The easiest way to do that
 is by shifting 1
-to the left by 23 places and then subtracting 1.  
+to the left by 23 places and then subtracting 1.
 
 The output of this program is:
 %
@@ -1908,7 +1908,7 @@ The output of this program is:
 0x500000
 \end{verbatim}
 %
-As expected, the sign bit for a negative number is 1.  The exponent 
+As expected, the sign bit for a negative number is 1.  The exponent
 is 130, including the bias.  And the coefficient, which I printed in
 hexadecimal, is $101$ followed by 20 zeros.
 
@@ -2089,7 +2089,7 @@ management features like garbage collection.
 \section{Memory errors}
 
 The C memory management API is a bit like Jasper Beardly, a minor
-character on the animated television program {\it The Simpsons}, 
+character on the animated television program {\it The Simpsons},
 who appears as a strict substitute teacher who imposes corporal
 punishment, a ``paddlin''', for all infractions.
 
@@ -2121,7 +2121,7 @@ in many other parts.
 
 Also, there might be many aliases, or references to the same allocated
 chunk, in different parts of the program.  The chunk should not be
-freed until all references to the chunk are no longer in use.  
+freed until all references to the chunk are no longer in use.
 Getting this right often requires careful analysis across all parts
 of the program, which is difficult and contrary to fundamental
 principles of good software engineering.
@@ -2164,7 +2164,7 @@ are likely to mangle these data structures.  The system usually won't
 detect the problem until later, when you call {\tt malloc} or
 {\tt free}, and those functions fail in some inscrutable way.
 
-\end{itemize} 
+\end{itemize}
 
 One conclusion you should draw from this is that safe memory
 management requires design and discipline.  If you write a library
@@ -2180,7 +2180,7 @@ functions and not, for example, call {\tt free} on a chunk you did not
 same chunk in different parts of your program.
 
 Often there is a tradeoff between safe memory management and performance.
-For example, the most common source of memory errors is writing 
+For example, the most common source of memory errors is writing
 beyond the bounds of an array.  The obvious remedy for this problem
 is bounds checking; that is, every access to the array should check
 whether the index is out of bounds.  High-level libraries that provide
@@ -2217,7 +2217,7 @@ might happen:
   more space to the leaking process.  I explain this mechanism
   in Section~\ref{paging}.
 
-\item There there might be a limit on the amount of space a single
+\item There might be a limit on the amount of space a single
   process can allocate; beyond that, {\tt malloc} returns NULL.
 
 \item Eventually, a process might fill its virtual address space (or
@@ -2566,12 +2566,12 @@ The kernel of the program is this loop:
     do {
         sec0 = get_seconds();
 
-        for (index = 0; index < limit; index += stride) 
+        for (index = 0; index < limit; index += stride)
             array[index] = array[index] + 1;
-        
-        iters = iters + 1; 
+
+        iters = iters + 1;
         sec = sec + (get_seconds() - sec0);
-        
+
     } while (sec < 0.1);
 \end{verbatim}
 
@@ -2613,10 +2613,10 @@ the same variable:
     iters2 = 0;
     do {
         sec0 = get_seconds();
-        
-        for (index = 0; index < limit; index += stride) 
+
+        for (index = 0; index < limit; index += stride)
             temp = temp + index;
-        
+
         iters2 = iters2 + 1;
         sec = sec - (get_seconds() - sec0);
 
@@ -2686,7 +2686,7 @@ it starts to degrade, and for larger strides the average miss
 penalty is about 9 ns.  We can infer that the block size is 128 B.
 
 Many processors use ``multi-level caches'' that include a small,
-fast cache and a bigger, slower cache.  In this example, it looks 
+fast cache and a bigger, slower cache.  In this example, it looks
 like the miss penalty increases a little when the array size is bigger
 than $2^{14}$ B, so it's possible that this processor also has a 16 KB
 cache with an access time less than 1 ns.
@@ -2743,7 +2743,7 @@ more expensive.  Main memory is usually dynamic random-access memory
 it is possible to pack more memory into the same amount of space.  But
 this way of implementing memory is slower than the way caches are
 implemented.
- 
+
 Also main memory is usally packaged in a dual in-line memory modules
 (DIMM) that includes 16 or more chips.  Several small chips are cheaper
 than one big one.
@@ -2758,8 +2758,8 @@ be smaller.  Tape drives are even slower than hard
 drives, but they can store large amounts of data relatively
 cheaply.
 
-The following table shows typical access times, sizes, and 
-costs for each of these technologies.  
+The following table shows typical access times, sizes, and
+costs for each of these technologies.
 
 \vspace{0.1in}
 \begin{center}
@@ -2895,7 +2895,7 @@ causes an interrupt.
 
 \item When the operating system handles the interrupt, it sees that
 the page is swapped out, so it transfers the page back from disk to
-memory.  
+memory.
 
 \item Once the page is swapped in, Process B can resume.
 
@@ -2940,7 +2940,7 @@ data back from disk, which can take several milliseconds.  The
 delay is often noticeable.  If you leave a window idle for a long
 time and then switch back to it, it might start slowly,
 and you might hear the disk drive working while pages are
-swapped in.  
+swapped in.
 
 Occasional delays like that might be acceptable, but if you have too
 many processes using too much space, they start to interfere with each
@@ -3012,7 +3012,7 @@ resume.
 
 Then, usually, it is the responsibility of the interrupt handler
 to save the contents of the registers.  In order to do its job, the
-kernel needs to execute instructions, which modify data registers and 
+kernel needs to execute instructions, which modify data registers and
 the flag register.  So this ``hardware state'' needs to be saved
 before it gets modified, and then restored before the interrupted
 process resumes.
@@ -3357,11 +3357,11 @@ pthread_t make_thread(void *(*entry)(void *), Shared *shared)
 \verb"pthread_create" easier to use, and to provide error-checking.
 
 The return type from {\tt pthread\_create} is {\tt pthread\_t},
-which you can think of as an id or ``handle'' for the new thread.  
+which you can think of as an id or ``handle'' for the new thread.
 
 If {\tt pthread\_create} succeeds, it returns 0 and \verb"make_thread"
 returns the handle of the new thread.
-If an error occurs, {\tt pthread\_create} 
+If an error occurs, {\tt pthread\_create}
 returns an error code and \verb"make_thread" prints an error message
 and exits.
 
@@ -3418,7 +3418,7 @@ the shared counter and increments it.
 
 \begin{verbatim}
 void child_code(Shared *shared)
-{  
+{
   printf("counter = %d\n", shared->counter);
   shared->counter++;
 }
@@ -3480,7 +3480,7 @@ code that waits on the children:
 \end{verbatim}
 
 This loops waits for the children one at a time in the order they
-were created.  There is no guarantee that the child threads complete 
+were created.  There is no guarantee that the child threads complete
 in that order, but this loop works correctly even if they don't.  If one
 of the children is late, the loop might have to wait, and other children
 might complete in the meantime.  But regardless, the loop exits
@@ -3649,7 +3649,7 @@ Mutex *make_mutex()
 {
   Mutex *mutex = check_malloc(sizeof(Mutex));
   int n = pthread_mutex_init(mutex, NULL);
-  if (n != 0) perror_exit("make_lock failed"); 
+  if (n != 0) perror_exit("make_lock failed");
   return mutex;
 }
 \end{verbatim}
@@ -3767,7 +3767,7 @@ void queue_push(Queue *queue, int item) {
   if (queue_full(queue)) {
     perror_exit("queue is full");
   }
-  
+
   queue->array[queue->next_in] = item;
   queue->next_in = queue_incr(queue, queue->next_in);
 }
@@ -3815,7 +3815,7 @@ int queue_pop(Queue *queue) {
   if (queue_empty(queue)) {
     perror_exit("queue is empty");
   }
-  
+
   int item = queue->array[queue->next_out];
   queue->next_out = queue_incr(queue, queue->next_out);
   return item;
@@ -3959,7 +3959,7 @@ void queue_push(Queue *queue, int item) {
     mutex_unlock(queue->mutex);   //-- new
     perror_exit("queue is full");
   }
-  
+
   queue->array[queue->next_in] = item;
   queue->next_in = queue_incr(queue, queue->next_in);
   mutex_unlock(queue->mutex);   //-- new
@@ -3980,7 +3980,7 @@ int queue_pop(Queue *queue) {
     mutex_unlock(queue->mutex);
     perror_exit("queue is empty");
   }
-  
+
   int item = queue->array[queue->next_out];
   queue->next_out = queue_incr(queue, queue->next_out);
   mutex_unlock(queue->mutex);
@@ -4055,7 +4055,7 @@ int queue_pop(Queue *queue) {
   while (queue_empty(queue)) {
     cond_wait(queue->nonempty, queue->mutex);  //-- new
   }
-  
+
   int item = queue->array[queue->next_out];
   queue->next_out = queue_incr(queue, queue->next_out);
   mutex_unlock(queue->mutex);
@@ -4064,7 +4064,7 @@ int queue_pop(Queue *queue) {
 }
 \end{verbatim}
 
-\verb"cond_wait" is complicated, so let's take it slow.  
+\verb"cond_wait" is complicated, so let's take it slow.
 The first argument is the condition variable; in this case,
 the condition we are waiting for is ``queue not empty''.  The second
 argument is the mutex that protects the queue.  Before you
@@ -4086,7 +4086,7 @@ void queue_push(Queue *queue, int item) {
   while (queue_full(queue)) {
     cond_wait(queue->nonfull, queue->mutex);    //-- new
   }
-  
+
   queue->array[queue->next_in] = item;
   queue->next_in = queue_incr(queue, queue->next_in);
   mutex_unlock(queue->mutex);
@@ -4180,10 +4180,10 @@ and returns a pointer:
 \begin{verbatim}
 Cond *make_cond()
 {
-  Cond *cond = check_malloc(sizeof(Cond)); 
+  Cond *cond = check_malloc(sizeof(Cond));
   int n = pthread_cond_init(cond, NULL);
   if (n != 0) perror_exit("make_cond failed");
- 
+
   return cond;
 }
 \end{verbatim}
@@ -4236,7 +4236,7 @@ The POSIX standard specifies an interface for semaphores;
 it is not part of Pthreads, but most UNIXes
 that implement Pthreads also provide semaphores.
 
-POSIX semaphores have type {\tt sem\_t}.  
+POSIX semaphores have type {\tt sem\_t}.
 This type behaves like a structure, so
 if you assign it to a variable you are making a copy of the
 contents.  Copying a semaphore is almost certainly
@@ -4399,7 +4399,7 @@ Here is the new version of \verb"queue_pop":
 int queue_pop(Queue *queue) {
   semaphore_wait(queue->items);
   semaphore_wait(queue->mutex);
-  
+
   int item = queue->array[queue->next_out];
   queue->next_out = queue_incr(queue, queue->next_out);
 
@@ -4545,5 +4545,3 @@ will get the signal, even if the signalling thread runs around and
 gets the mutex before one of the waiting threads resumes.
 
 \end{document}
-
-
